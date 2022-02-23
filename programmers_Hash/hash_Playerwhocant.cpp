@@ -1,5 +1,5 @@
 /*
-ÇØ½Ã-¿ÏÁÖÇÏÁö ¸øÇÑ ¼±¼ö
+í•´ì‹œ-ì™„ì£¼í•˜ì§€ ëª»í•œ ì„ ìˆ˜
 */
 
 #include <string>
@@ -11,15 +11,15 @@ using namespace std;
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
     unordered_map<string, int> strMap;
-    //mapÀº µÎ °³ÀÇ ÀÎÀÚ¸¦ °¡Áö´Âµ¥, Ã¹ ÀÎÀÚ´Â Key, µÎ ¹øÂ° ÀÎÀÚ´Â Value ÀÇ ¿ªÇÒ
-    for (auto elem : completion) //auto Å°¿öµå¸¦ »ç¿ëÇÏ¿© ÄÄÆÄÀÏ·¯°¡ ÀÚ·áÇüÀ» Ãß·ĞÇÏµµ·Ï
+    //mapì€ ë‘ ê°œì˜ ì¸ìë¥¼ ê°€ì§€ëŠ”ë°, ì²« ì¸ìëŠ” Key, ë‘ ë²ˆì§¸ ì¸ìëŠ” Value ì˜ ì—­í• 
+    for (auto elem : completion) //auto í‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•˜ì—¬ ì»´íŒŒì¼ëŸ¬ê°€ ìë£Œí˜•ì„ ì¶”ë¡ í•˜ë„ë¡
     {
         if (strMap.end() == strMap.find(elem))
-            //end()´Â ºó iteratorÀÇ ÁÖ¼Ò ¹İÈ¯ 
-            //find(a)ÀÇ °æ¿ì a¸¦ Ã£Áö ¸øÇßÀ¸¸é ºó iterator ÁÖ¼Ò ¹İÈ¯
-            //±×·¯¹Ç·Î end()¿Í find(a)ÀÇ °ªÀÌ °°À» °æ¿ì = aÀÇ °ªÀ» Ã£Áö ¸øÇßÀ» °æ¿ì
+            //end()ëŠ” ë¹ˆ iteratorì˜ ì£¼ì†Œ ë°˜í™˜ 
+            //find(a)ì˜ ê²½ìš° aë¥¼ ì°¾ì§€ ëª»í–ˆìœ¼ë©´ ë¹ˆ iterator ì£¼ì†Œ ë°˜í™˜
+            //ê·¸ëŸ¬ë¯€ë¡œ end()ì™€ find(a)ì˜ ê°’ì´ ê°™ì„ ê²½ìš° = aì˜ ê°’ì„ ì°¾ì§€ ëª»í–ˆì„ ê²½ìš°
             strMap.insert(make_pair(elem, 1));
-        //insert(make_pair(key,value)) : pair ÇüÅÂ·Î Ãß°¡ (¹İµå½Ã)!!
+        //insert(make_pair(key,value)) : pair í˜•íƒœë¡œ ì¶”ê°€ (ë°˜ë“œì‹œ)!!
         else
             strMap[elem]++;
     }

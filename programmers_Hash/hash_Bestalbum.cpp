@@ -1,12 +1,12 @@
 /*
-ÇØ½Ã-º£½ºÆ®¾Ù¹ü
-<¾î¶»°Ô Ç®¾ú´Â°¡?>
-1. unordered_map ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© genresÀÇ °ªµéÀ» key·Î °¡Áö°í ÇØ´ç genreÀÇ play °ªµéÀÇ ÇÕÀ» value·Î °¡Áö´Â map<string,int>¸¦ ¸¸µç´Ù.
-2. mapÀº ¿À¸§Â÷¼ø Á¤·ÄÀÌ ¾î·Á¿ì¹Ç·Î genreMapÀÇ °ªµéÀ» vector<pair<int,string>> ÇüÅÂÀÎ vec¿¡ Áý¾î³ÖÀº ´ÙÀ½ algorithm ¶óÀÌºê·¯¸®ÀÇ sort ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© Á¤·ÄÇÑ´Ù. ¿©±â¼­ int¿Í stringÀÇ ¼ø¼­°¡ µÚ¹Ù²î´Â ÀÌÀ¯´Â play °ªµéÀÇ ÇÕÀ» ±âÁØÀ¸·Î Á¤·ÄÇØ¾ßÇÏ±â ¶§¹®ÀÌ´Ù.
-3. Á¤·ÄÀÌ µÇ¾ú´Ù¸é ÀÌÁ¦ play °ªµéÀÇ ÇÕÀº ÇÊ¿ä¾ø´Ù. vector<pair<int,string>>ÀÇ string °ªÀº plays °ªµé·Î Á¤·ÄµÇ¾î ÀÖ´Â »óÅÂÀÏÅ×´Ï ÀÎµ¦½º ¼ø¼­´ë·Î vector<string> ÇüÅÂÀÇ vec2°ª¿¡ ´ã´Â´Ù.
-4. vector<pair<int,int>> ÇüÅÂÀÇ list_sameGenre¸¦ ¼±¾ðÇÑ´Ù. ±×¸®°í vecÀÇ Å©±â(¼­·Î ´Ù¸¥ Àå¸£ÀÇ °³¼ö)¸¸Å­ÀÇ ·çÇÁ ¾È¿¡ genresÀÇ Å©±â¸¸Å­ÀÇ ·çÇÁ¸¦ µ¹·Á genreMapÀÇ key°ª°ú genresÀÇ °ªÀÌ ÀÏÄ¡ÇÒ ¶§¸¶´Ù list_sameGenreÀÇ pair¿¡ <plays[ÇØ´ç ÀÎµ¦½º], ÁÖ¾îÁø genresÀÇ Å©±â¿¡¼­ °íÀ¯¹øÈ£ »« °ª>À» ³Ö´Â´Ù. ¿©±â¼­ ÁÖÀÇÇÒ Á¡Àº pairÀÇ µÎ¹øÂ° °ªÀÌ °íÀ¯¹øÈ£°¡ ¾Æ´Ñ ÁÖ¾îÁø genresÀÇ Å©±â¿¡¼­ »« °ªÀÌ¾î¾ß ÇÑ´Ù´Â Á¡ÀÌ´Ù. ¿Ö³ÄÇÏ¸é  º£½ºÆ®À½¾Ç Àç»ý¼ö°¡ ³ô°í, °íÀ¯¹øÈ£°¡ ³·À»¼ö·Ï ¾Õ¿¡ ¼ö·ÏµÇ±â ¶§¹®ÀÌ´Ù. ±×´ë·Î °íÀ¯¹øÈ£ °ªÀ» ³ÖÀ¸¸é µû·Î Ã³¸®ÇØÁà¾ßÇØ¼­ ±ÍÂú¾ÆÁø´Ù. ÁÖ¾îÁø genresÀÇ Å©±â¿¡¼­ »¬ °æ¿ì °íÀ¯¹øÈ£°¡ Å¬¼ö·Ï ÀÛ¾ÆÁö°í ÀÛÀ»¼ö·Ï Ä¿Áø´Ù.
-5. list_sameGenre¸¦ Á¤·ÄÇÑ ÈÄ °¡Àå µÚ¿¡ ÀÖ´Â °ª (ÇØ´ç Àå¸£ Áß¿¡¼­ °¡Àå ¸¹ÀÌ Àç»ýµÊ)ÀÇ °íÀ¯¹øÈ£¸¦ result °ª¿¡ Ãß°¡ÇÑ´Ù. ÀÌ¸¦  list_sameGenreÀ» ÃÊ±âÈ­ÇØ°¡¸ç ¼­·Î ´Ù¸¥ Àå¸£ÀÇ °³¼ö¸¸Å­ ¹Ýº¹ÇÑ´Ù.
-±âº»ÀûÀÎ ÄÚµå µ¹¾Æ°¡´Â ¹æ½ÄÀº ÀÌ·¸´Ù. ÀÏºÎ ÇÔ¼ö´Â ¼±ÀÔÈÄÃâ·Î ½×ÀÌ±â ¶§¹®¿¡ ¾Õ¿¡¼­ ·çÇÁ¸¦ µ¹¸±Áö µÚ¿¡¼­ µ¹¸±Áö ÁÖÀÇÇØ¾ß ÇÑ´Ù.
+í•´ì‹œ-ë² ìŠ¤íŠ¸ì•¨ë²”
+<ì–´ë–»ê²Œ í’€ì—ˆëŠ”ê°€?>
+1. unordered_map í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ genresì˜ ê°’ë“¤ì„ keyë¡œ ê°€ì§€ê³  í•´ë‹¹ genreì˜ play ê°’ë“¤ì˜ í•©ì„ valueë¡œ ê°€ì§€ëŠ” map<string,int>ë¥¼ ë§Œë“ ë‹¤.
+2. mapì€ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ì´ ì–´ë ¤ìš°ë¯€ë¡œ genreMapì˜ ê°’ë“¤ì„ vector<pair<int,string>> í˜•íƒœì¸ vecì— ì§‘ì–´ë„£ì€ ë‹¤ìŒ algorithm ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ sort í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ ì •ë ¬í•œë‹¤. ì—¬ê¸°ì„œ intì™€ stringì˜ ìˆœì„œê°€ ë’¤ë°”ë€ŒëŠ” ì´ìœ ëŠ” play ê°’ë“¤ì˜ í•©ì„ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬í•´ì•¼í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
+3. ì •ë ¬ì´ ë˜ì—ˆë‹¤ë©´ ì´ì œ play ê°’ë“¤ì˜ í•©ì€ í•„ìš”ì—†ë‹¤. vector<pair<int,string>>ì˜ string ê°’ì€ plays ê°’ë“¤ë¡œ ì •ë ¬ë˜ì–´ ìžˆëŠ” ìƒíƒœì¼í…Œë‹ˆ ì¸ë±ìŠ¤ ìˆœì„œëŒ€ë¡œ vector<string> í˜•íƒœì˜ vec2ê°’ì— ë‹´ëŠ”ë‹¤.
+4. vector<pair<int,int>> í˜•íƒœì˜ list_sameGenreë¥¼ ì„ ì–¸í•œë‹¤. ê·¸ë¦¬ê³  vecì˜ í¬ê¸°(ì„œë¡œ ë‹¤ë¥¸ ìž¥ë¥´ì˜ ê°œìˆ˜)ë§Œí¼ì˜ ë£¨í”„ ì•ˆì— genresì˜ í¬ê¸°ë§Œí¼ì˜ ë£¨í”„ë¥¼ ëŒë ¤ genreMapì˜ keyê°’ê³¼ genresì˜ ê°’ì´ ì¼ì¹˜í•  ë•Œë§ˆë‹¤ list_sameGenreì˜ pairì— <plays[í•´ë‹¹ ì¸ë±ìŠ¤], ì£¼ì–´ì§„ genresì˜ í¬ê¸°ì—ì„œ ê³ ìœ ë²ˆí˜¸ ëº€ ê°’>ì„ ë„£ëŠ”ë‹¤. ì—¬ê¸°ì„œ ì£¼ì˜í•  ì ì€ pairì˜ ë‘ë²ˆì§¸ ê°’ì´ ê³ ìœ ë²ˆí˜¸ê°€ ì•„ë‹Œ ì£¼ì–´ì§„ genresì˜ í¬ê¸°ì—ì„œ ëº€ ê°’ì´ì–´ì•¼ í•œë‹¤ëŠ” ì ì´ë‹¤. ì™œëƒí•˜ë©´  ë² ìŠ¤íŠ¸ìŒì•… ìž¬ìƒìˆ˜ê°€ ë†’ê³ , ê³ ìœ ë²ˆí˜¸ê°€ ë‚®ì„ìˆ˜ë¡ ì•žì— ìˆ˜ë¡ë˜ê¸° ë•Œë¬¸ì´ë‹¤. ê·¸ëŒ€ë¡œ ê³ ìœ ë²ˆí˜¸ ê°’ì„ ë„£ìœ¼ë©´ ë”°ë¡œ ì²˜ë¦¬í•´ì¤˜ì•¼í•´ì„œ ê·€ì°®ì•„ì§„ë‹¤. ì£¼ì–´ì§„ genresì˜ í¬ê¸°ì—ì„œ ëº„ ê²½ìš° ê³ ìœ ë²ˆí˜¸ê°€ í´ìˆ˜ë¡ ìž‘ì•„ì§€ê³  ìž‘ì„ìˆ˜ë¡ ì»¤ì§„ë‹¤.
+5. list_sameGenreë¥¼ ì •ë ¬í•œ í›„ ê°€ìž¥ ë’¤ì— ìžˆëŠ” ê°’ (í•´ë‹¹ ìž¥ë¥´ ì¤‘ì—ì„œ ê°€ìž¥ ë§Žì´ ìž¬ìƒë¨)ì˜ ê³ ìœ ë²ˆí˜¸ë¥¼ result ê°’ì— ì¶”ê°€í•œë‹¤. ì´ë¥¼  list_sameGenreì„ ì´ˆê¸°í™”í•´ê°€ë©° ì„œë¡œ ë‹¤ë¥¸ ìž¥ë¥´ì˜ ê°œìˆ˜ë§Œí¼ ë°˜ë³µí•œë‹¤.
+ê¸°ë³¸ì ì¸ ì½”ë“œ ëŒì•„ê°€ëŠ” ë°©ì‹ì€ ì´ë ‡ë‹¤. ì¼ë¶€ í•¨ìˆ˜ëŠ” ì„ ìž…í›„ì¶œë¡œ ìŒ“ì´ê¸° ë•Œë¬¸ì— ì•žì—ì„œ ë£¨í”„ë¥¼ ëŒë¦´ì§€ ë’¤ì—ì„œ ëŒë¦´ì§€ ì£¼ì˜í•´ì•¼ í•œë‹¤.
 */
 
 #include <string>

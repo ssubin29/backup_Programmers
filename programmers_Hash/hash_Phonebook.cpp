@@ -1,14 +1,14 @@
 /*
-ÇØ½Ã-ÀüÈ­¹øÈ£ ¸ñ·Ï
-<¾î¶»°Ô Ç®¾ú´Â°¡?>
- ÀüÈ­¹øÈ£ÀÇ °ªÀ» int°¡ ¾Æ´Ñ stringÀ¸·Î ÁØ ÀÌÀ¯°¡ ÀÖ´Ù. 
- sortÇÒ °æ¿ì ¾Õ ºÎºÐÀÌ °°À¸¸é ³ª¶õÈ÷ Á¤·ÄµÇ±â ¶§¹®ÀÌ´Ù. 
- µû¶ó¼­ Á¤·ÄÀ» ÇÒ °æ¿ì ÇÏ³ªÇÏ³ª È®ÀÎÇÒ ÇÊ¿ä°¡ ¾ø¾îÁü ¾ÕºÎºÐÀÌ ºñ½ÁÇÏ´Ù¸é ¹Ù·Î ¿·¿¡ ³ª¿­µÇ¾îÀÖÀ» °ÍÀÌ±â ¶§¹®¿¡. 
- ·çÇÁ¸¦ ÃÑ 2°³ µ¹·Á È®ÀÎÇÑ´Ù. 
- ÇÏ³ª´Â phone_bookÀÇ Å©±â(ÀüÈ­¹øÈ£ÀÇ °³¼ö)º¸´Ù ÇÏ³ª Àû°Ô(ÇÏ³ª ÀûÀº ÀÌÀ¯´Â ¸¶Áö¸· ÀüÈ­¹øÈ£´Â È®ÀÎÇÒ ÇÊ¿ä ¾ø±â ¶§¹®), 
- ±×  ¾ÈÀÇ ·çÇÁ´Â phone_bookÀÇ ÇØ´ç ÀÎµ¦½º¿¡ À§Ä¡ÇÏ´Â ÀüÈ­¹øÈ£ÀÇ ±æÀÌ¸¸Å­ µ¹¸°´Ù. 
- ·çÇÁ¸¶´Ù i ÀÎµ¦½º¿Í i+1 ÀÎµ¦½º¿¡ À§Ä¡ÇÑ °ªÀÌ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎÇÏ°í ÇÏ³ª¶óµµ ÀÏÄ¡ÇÏÁö ¾Ê´Â °ÍÀÌÀÖ´Ù¸é breakÇÏ¿© ´ÙÀ½ ÀüÈ­¹øÈ£·Î °£´Ù. 
- ¸¸¾à °ªÀÌ ÀüºÎ ÀÏÄ¡ÇÏ´Â °æ¿ì¸¦ Ã£¾Ò´Ù¸é ¹Ù·Î false¸¦ returnÇÑ´Ù.
+í•´ì‹œ-ì „í™”ë²ˆí˜¸ ëª©ë¡
+<ì–´ë–»ê²Œ í’€ì—ˆëŠ”ê°€?>
+ ì „í™”ë²ˆí˜¸ì˜ ê°’ì„ intê°€ ì•„ë‹Œ stringìœ¼ë¡œ ì¤€ ì´ìœ ê°€ ìžˆë‹¤. 
+ sortí•  ê²½ìš° ì•ž ë¶€ë¶„ì´ ê°™ìœ¼ë©´ ë‚˜ëž€ížˆ ì •ë ¬ë˜ê¸° ë•Œë¬¸ì´ë‹¤. 
+ ë”°ë¼ì„œ ì •ë ¬ì„ í•  ê²½ìš° í•˜ë‚˜í•˜ë‚˜ í™•ì¸í•  í•„ìš”ê°€ ì—†ì–´ì§ ì•žë¶€ë¶„ì´ ë¹„ìŠ·í•˜ë‹¤ë©´ ë°”ë¡œ ì˜†ì— ë‚˜ì—´ë˜ì–´ìžˆì„ ê²ƒì´ê¸° ë•Œë¬¸ì—. 
+ ë£¨í”„ë¥¼ ì´ 2ê°œ ëŒë ¤ í™•ì¸í•œë‹¤. 
+ í•˜ë‚˜ëŠ” phone_bookì˜ í¬ê¸°(ì „í™”ë²ˆí˜¸ì˜ ê°œìˆ˜)ë³´ë‹¤ í•˜ë‚˜ ì ê²Œ(í•˜ë‚˜ ì ì€ ì´ìœ ëŠ” ë§ˆì§€ë§‰ ì „í™”ë²ˆí˜¸ëŠ” í™•ì¸í•  í•„ìš” ì—†ê¸° ë•Œë¬¸), 
+ ê·¸  ì•ˆì˜ ë£¨í”„ëŠ” phone_bookì˜ í•´ë‹¹ ì¸ë±ìŠ¤ì— ìœ„ì¹˜í•˜ëŠ” ì „í™”ë²ˆí˜¸ì˜ ê¸¸ì´ë§Œí¼ ëŒë¦°ë‹¤. 
+ ë£¨í”„ë§ˆë‹¤ i ì¸ë±ìŠ¤ì™€ i+1 ì¸ë±ìŠ¤ì— ìœ„ì¹˜í•œ ê°’ì´ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸í•˜ê³  í•˜ë‚˜ë¼ë„ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ” ê²ƒì´ìžˆë‹¤ë©´ breakí•˜ì—¬ ë‹¤ìŒ ì „í™”ë²ˆí˜¸ë¡œ ê°„ë‹¤. 
+ ë§Œì•½ ê°’ì´ ì „ë¶€ ì¼ì¹˜í•˜ëŠ” ê²½ìš°ë¥¼ ì°¾ì•˜ë‹¤ë©´ ë°”ë¡œ falseë¥¼ returní•œë‹¤.
 */
 
 #include <string>
@@ -18,7 +18,7 @@
 using namespace std;
 
 bool solution(vector<string> phone_book) {
-    bool answer = true;
+    bool answer = true; int i,j;
     sort(phone_book.begin(), phone_book.end());
     for (int i = 0; i < phone_book.size() - 1; i++)
     {
