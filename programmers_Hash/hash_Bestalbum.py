@@ -16,13 +16,19 @@ def solution(genres, plays):
     play_count = sorted(play_count.items(), 
                         key = lambda item: item[1], reverse = True)
     
-    
-    
+     
     for key in play_count:
         # key[1]이 genre
+        s_genre = genre_count[key[0]]
+        print(s_genre.sort(key=lambda x: x[1], reverse = True))
         
+        if len(s_genre) < 2:
+            answer.append(s_genre[0][0])
+        else:
+            for i in range(2):
+                answer.append(s_genre[i][0])
         
-    print(play_count)
-    print(genre_count)
+        print(s_genre)       
+        
     
     return answer
