@@ -1,6 +1,7 @@
 def solution(clothes):
     answer = 1
     clothes_count = {}
+    
     for cloth in clothes:
         if (cloth[1] not in clothes_count.keys()):
             clothes_count[cloth[1]] = 1
