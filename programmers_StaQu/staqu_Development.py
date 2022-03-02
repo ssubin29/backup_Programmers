@@ -12,20 +12,21 @@ def solution(progresses, speeds):
            day = day+1 
         days.append(day)
     
-    while(days):
-        
-        if len(days) <= 1:
+    while(days):    
+        a = days.pop(0)     
+        count = 1       
+        if not days :
+            print('days가 비어있습니다')
             break
-            
-        a = days.pop(0)
-        print(a)
-        count = 1
-        
+        print(a, days[0])
         while(a>=days[0]):
+            if not len(days) > 0:
+                break
             days.pop(0)
             count = count + 1
         answer.append(count)
-                        
+        print(days)
     return answer
+
 
 solution([93, 30, 55], [1, 30, 5])
