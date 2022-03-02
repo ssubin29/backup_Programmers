@@ -19,10 +19,13 @@ def solution(progresses, speeds):
             print('days가 비어있습니다')
             break
         print(a, days[0])
+        print(len(days))
         while(a>=days[0]):
             if not len(days) > 0:
+                print('두번째 while문을 나갑니다')
                 break
             days.pop(0)
+            print(days)
             count = count + 1
         answer.append(count)
         print(days)
