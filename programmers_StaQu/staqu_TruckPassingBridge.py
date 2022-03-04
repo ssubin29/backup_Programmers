@@ -6,7 +6,7 @@ def solution(bridge_length, weight, truck_weights):
     bridge = []
     bridge_weights = 0
     
-    for i in truck_weight:
+    for i in truck_weights:
         while(len(bridge)):
             
     
