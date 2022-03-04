@@ -8,6 +8,6 @@ def solution(bridge_length, weight, truck_weights):
     
     for i in truck_weights:
         while(len(bridge)):
-            
+            print(i)
     
     return answer
