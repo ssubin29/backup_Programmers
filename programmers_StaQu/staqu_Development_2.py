@@ -14,20 +14,14 @@ def solution(progresses, speeds):
     print("days는", days)
     # days는 progresses가 걸리는 일 수 
     
-    count = 1
+    count = 0
+    answer.append(1)
     
     for num1, num2 in zip(days, days[1:]):     
         if num1 >= num2 :
-            count = count +1
-            if not answer:
-                answer.append(count)
+            answer[count] = answer[count] + 1
         else:
-            if not answer:
-                answer.append(count)
-            else:
-                answer.append(count)
-                count = 1
+            answer.append(1)
+            count = count+1
             
-    answer.append(count)
-    
     return answer
