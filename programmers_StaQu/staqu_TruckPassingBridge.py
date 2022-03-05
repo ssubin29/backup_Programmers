@@ -4,10 +4,12 @@ def solution(bridge_length, weight, truck_weights):
     answer = 0
     
     bridge = []
+    count = 0
     bridge_weights = 0
     
-    for i in truck_weights:
-        while(len(bridge)):
-            print(i)
+    while(truck_weights):
+        bridge_weights += truck_weights.pop(0)
+        if bridge_weights >= weight:
+            count = count + 1
     
     return answer
