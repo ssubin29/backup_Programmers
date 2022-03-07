@@ -2,7 +2,7 @@
 
 def solution(bridge_length, weight, truck_weights):
     answer = 0
-    
+
     count = 0
     bridge_weights = 0
     
