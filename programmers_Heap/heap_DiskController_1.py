@@ -18,17 +18,19 @@ def solution(jobs):
         
         for job in jobs:
             if (job[0] >= time):
-                heapq.heappush(order_list,[job[1], 
+                # answer = job[1]
+                # time = (job[0] - time) + job[1]
+                heapq.heappush(order_list,[(job[0] - time) + job[1], 
                                            job[0], job[1],
-                                          (job[0] - time) + job[1]])
+                                          job[1]])
             else:
-                heapq.heappush(order_list,[time - job[0] + job[1], 
-                                           job[0], job[1], job[1]])
+                # answer = time - job[0] + job[1]
+                # time = job[1]
+                heapq.heappush(order_list,[job[1], 
+                                           job[0], job[1], time - job[0] + job[1]])
             
-        print(order_list)
-            
-        answer = answer + order_list[0][0]
-        time = time + order_list[0][3]
+        answer = answer + order_list[0][3]
+        time = time + order_list[0][0]
         
         jobs.remove([order_list[0][1], order_list[0][2]])
         
