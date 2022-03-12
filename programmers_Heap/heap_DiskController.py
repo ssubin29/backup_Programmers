@@ -31,6 +31,6 @@ def solution(jobs):
             jobs.remove([job_list[0][1],job_list[0][0]])
         
         print(answer)
-    answer = answer / length
+    answer = answer // length
     
     return answer
