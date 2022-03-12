@@ -4,10 +4,17 @@ import heapq
 def solution(scoville, K):
     answer = 0
     
-    scoville.sort()
     heapq.heapify(scoville)
-    
-    ret_val = heapq.heappop(scoville)
-    print(ret_val)
+    while(scoville[0] < K):
+        fir = heapq.heappop(scoville)
+        sec = heapq.heappop(scoville)
+        heapq.heappush(scoville, fir + sec * 2)
+        answer = answer + 1
+        
+        if(len(scoville)<2):
+            if (scoville[0] >= K):
+                return answer
+            else:
+                return -1
     
     return answer
