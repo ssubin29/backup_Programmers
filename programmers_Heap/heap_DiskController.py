@@ -29,8 +29,7 @@ def solution(jobs):
             answer = answer + (time - job_list[0][1]) + job_list[0][0]
             time = time + job_list[0][0]
             jobs.remove([job_list[0][1],job_list[0][0]])
-        
-        print(answer)
+            
     answer = answer // length
     
     return answer
