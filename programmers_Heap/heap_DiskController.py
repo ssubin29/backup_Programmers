@@ -1,7 +1,6 @@
 # 힙 - 디스크 컨트롤러 65점 코드
 
 import heapq
-
 def solution(jobs):
     answer = 0
     length = len(jobs)
