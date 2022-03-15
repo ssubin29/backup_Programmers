@@ -17,20 +17,20 @@ def solution(operations):
         if operation[0] == "I":
             # 최소 힙
             heapq.heappush(min_heap, operation[1])
-            heapq.heappush(md_in_max_heap, operation[1])
             # 최대 힙
             heapq.heappush(max_heap, -operation[1])
-            heapq.heappush(md_in_min_heap, -operation[1])
-        elif operation[0] == "D":            
+        elif operation[0] == "D":
+            
             if operation[1] == 1: 
-                if (max_heap[0]!=-md_in_max_heap[0]):
+                if (max_heap[0]!=md_in_max_heap[0]):
                     pop = heapq.heappop(max_heap)  
-                    heapq.heappush(md_in_min_heap, pop)
+                    heapq.heappush(md_in_max_heap, -pop)
                     
             elif operation[1] == -1 :
-                if (min_heap[0]!=-md_in_min_heap[0]):
+                if (min_heap[0]!=md_in_min_heap[0]):
                     pop = heapq.heappop(min_heap)
-                    heapq.heappush(md_in_min_heap, -pop)
+                    heapq.heappush(md_in_min_heap, pop)
+                    
     print(max_heap)
     print(min_heap)
     
