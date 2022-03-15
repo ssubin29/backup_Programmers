@@ -19,17 +19,27 @@ def solution(operations):
             heapq.heappush(min_heap, operation[1])
             # 최대 힙
             heapq.heappush(max_heap, -operation[1])
-        elif operation[0] == "D":
-            
+        elif operation[0] == "D":            
             if operation[1] == 1: 
-                if (max_heap[0]!=md_in_max_heap[0]):
+                if not (max_heap):
+                    break
+                elif not (md_in_max_heap):
                     pop = heapq.heappop(max_heap)  
-                    heapq.heappush(md_in_max_heap, -pop)
+                    heapq.heappush(md_in_min_heap, pop)
+                    
+                elif (max_heap[0]!=md_in_max_heap[0]):
+                    pop = heapq.heappop(max_heap)  
+                    heapq.heappush(md_in_min_heap, pop)
                     
             elif operation[1] == -1 :
-                if (min_heap[0]!=md_in_min_heap[0]):
+                if not (min_heap):
+                    break
+                elif not (md_in_min_heap):
+                    pop = heapq.heappop(min_heap)  
+                    heapq.heappush(md_in_max_heap, -pop)
+                elif (min_heap[0]!=md_in_min_heap[0]):
                     pop = heapq.heappop(min_heap)
-                    heapq.heappush(md_in_min_heap, pop)
+                    heapq.heappush(md_in_min_heap, -pop)
                     
     print(max_heap)
     print(min_heap)
