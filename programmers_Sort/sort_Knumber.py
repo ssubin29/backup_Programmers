@@ -8,7 +8,7 @@ def solution(array, commands):
     
     for command in commands:
         if (command[0]==command[1]):
-            answer.append(array[command[0]]
+            answer.append(array[command[0]])
             print(1)
         else : 
             answer.append(array[command[0]-1:command[1]][command[2]])
