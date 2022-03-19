@@ -11,10 +11,6 @@ def solution(citations):
         if i <= citations[i-1]:
             answer = answer + 1
         else :
-            # i = i - 1
             break
-        print(i)
-    if i == len(citations):
-        answer = answer + 1
         
     return answer
