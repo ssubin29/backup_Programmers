@@ -7,12 +7,14 @@ def solution(citations):
     print(citations)
     
     i=0
-    for i in range(1,len(citations)): # i는 1부터 len(citations)-1까지
+    for i in range(1,len(citations)+1): # i는 1부터 len(citations)-1까지
         if i <= citations[i-1]:
             answer = answer + 1
         else :
-            i = i - 1
+            # i = i - 1
             break
-    if i+1 == len(citations):
+        print(i)
+    if i == len(citations):
         answer = answer + 1
+        
     return answer
