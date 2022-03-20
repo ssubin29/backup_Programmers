@@ -1,8 +1,7 @@
 # 가장 큰 수
 
 def solution(numbers):
-    answer = ''
-    
+    answer = ''    
     strings = list(map(str, numbers))
     for n in range(len(strings)):
         strings[n] = '0'*(4-len(strings[n])) + strings[n]
