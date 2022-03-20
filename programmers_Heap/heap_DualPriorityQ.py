@@ -42,8 +42,8 @@ def solution(operations):
                     heapq.heappush(md_in_max_heap, -pop)
         
         
-        #print('max_heap은', max_heap, 'min_heap은', min_heap)
-        #print('md_in_max_heap은', md_in_max_heap, 'md_in_min_heap은', md_in_min_heap)
+        print('max_heap은', max_heap, 'min_heap은', min_heap)
+        print('md_in_max_heap은', md_in_max_heap, 'md_in_min_heap은', md_in_min_heap)
     
     answer_max = []
     answer_min = []
@@ -66,10 +66,10 @@ def solution(operations):
         else:
             answer_max.append(-heapq.heappop(max_heap))     
     
-    #print(answer_max)
-    #print(answer_min)
+    print(answer_max)
+    print(answer_min)
     
-    if answer_min and answer_max:
+    if answer_min a and answer_max:
         answer = [heapq.heappop(answer_max), heapq.heappop(answer_min)]
     else:
         answer = [0,0]
