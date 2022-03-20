@@ -1,7 +1,8 @@
 # 힙 - 이중 우선순위 큐
 import heapq
 def solution(operations):
-    answer = []    
+    answer = []
+    
     operations_=[]
     for operation in operations:
         operations_.append([operation.split()[0], int(operation.split()[1])])
@@ -41,8 +42,8 @@ def solution(operations):
                     heapq.heappush(md_in_max_heap, -pop)
         
         
-        #print('max_heap은', max_heap, 'min_heap은', min_heap)
-        #print('md_in_max_heap은', md_in_max_heap, 'md_in_min_heap은', md_in_min_heap)
+        print('max_heap은', max_heap, 'min_heap은', min_heap)
+        print('md_in_max_heap은', md_in_max_heap, 'md_in_min_heap은', md_in_min_heap)
     
     answers = []
     while(True):
@@ -53,9 +54,20 @@ def solution(operations):
         else:
             heapq.heappop(min_heap)
             heapq.heappop(md_in_min_heap)
+            
+    while(True):
+        if not md_in_max_heap:
+            break
+        if (max_heap[0] != md_in_max_heap[0]):
+            answers.append(heapq.heappop(max_heap))
+        else:
+            heapq.heappop(max_heap)
+            heapq.heappop(md_in_max_heap)
     
-    if answers:
-        answer = [max(answers), min(answers)]
+    print(max_heap)
+    
+    if max_heap:
+        answer = [heapq.heappop(max_heap), heapq.heappop(min_heap)]
     else:
         answer = [0,0]
     
