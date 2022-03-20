@@ -50,26 +50,27 @@ def solution(operations):
     while(True):
         if not md_in_min_heap:
             break
-        if (min_heap[0] != md_in_min_heap[0]):
+        if (min_heap[0] == md_in_min_heap[0]):
             heapq.heappop(min_heap)
-        else:
-            answer_min.append(heapq.heappop(min_heap))
             heapq.heappop(md_in_min_heap)
+        else:
+            answer_min.append(heapq.heappop(min_heap))            
+            
             
     while(True):
         if not md_in_max_heap:
             break
-        if (max_heap[0] != md_in_max_heap[0]):
+        if (max_heap[0] == md_in_max_heap[0]):
             heapq.heappop(max_heap)
-        else:
-            answer_max.append(-heapq.heappop(max_heap))
             heapq.heappop(md_in_max_heap)
+        else:
+            answer_max.append(-heapq.heappop(max_heap))     
     
-    print(answer_max)
-    print(answer_min)
+    #print(answer_max)
+    #print(answer_min)
     
-    if max_heap:
-        answer = [-heapq.heappop(answer_max), heapq.heappop(answer_min)]
+    if answer_min and answer_max:
+        answer = [heapq.heappop(answer_max), heapq.heappop(answer_min)]
     else:
         answer = [0,0]
     
