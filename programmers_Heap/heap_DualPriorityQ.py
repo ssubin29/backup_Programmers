@@ -27,7 +27,7 @@ def solution(operations):
                     pop = heapq.heappop(max_heap)  
                     heapq.heappush(md_in_min_heap, -pop)
                     
-                elif (max_heap[0]!=md_in_max_heap[0]):
+                else : # elif (max_heap[0]!=md_in_max_heap[0]):
                     pop = heapq.heappop(max_heap)  
                     heapq.heappush(md_in_min_heap, -pop)
                     
@@ -37,7 +37,7 @@ def solution(operations):
                 elif not (md_in_min_heap):
                     pop = heapq.heappop(min_heap)  
                     heapq.heappush(md_in_max_heap, -pop)
-                elif (min_heap[0]!=md_in_min_heap[0]):
+                else :# (min_heap[0]!=md_in_min_heap[0]):
                     pop = heapq.heappop(min_heap)
                     heapq.heappush(md_in_max_heap, -pop)
         
@@ -84,4 +84,4 @@ def solution(operations):
     
     return answer
 
-print(solution(	["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
+#print(solution(	["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
