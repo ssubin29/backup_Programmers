@@ -74,8 +74,8 @@ def solution(operations):
         else:
             answer_max.append(-heapq.heappop(max_heap))     
     
-    #print(answer_max)
-    #print(answer_min)
+    print('answer_max는 ', answer_max)
+    print('answer_min은 ', answer_min)
     
     if answer_min and answer_max:
         answer = [heapq.heappop(answer_max), heapq.heappop(answer_min)]
@@ -83,3 +83,5 @@ def solution(operations):
         answer = [0,0]   
     
     return answer
+
+print(solution(	["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
