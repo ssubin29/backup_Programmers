@@ -12,11 +12,9 @@ def solution(answers):
         cnt[1] = cnt[1] + (answers[i]==second[i%8])
         cnt[2] = cnt[2] + (answers[i]==third[i%10])
     
-    #print(cnt)
     if (cnt[0]==cnt[1] and cnt[1]==cnt[2]) : submit = [1,2,3]    
     else : 
         max_ = cnt[cnt.index(max(cnt))]
-        #print(max_)
         submit = []
         for i, c in enumerate(cnt):
             if(c == max_) : submit.append(i+1)
