@@ -2,6 +2,14 @@
 
 import itertools
 
+# 최단 경로를 찾아주는 함수
+# 입력값 : 시작 인덱스, 목표 인덱스, 총 길이
+def get_better_way(start, des, limit_len): 
+    better = 0
+    a = abs(des-start)
+    b = start + (limit_len - des)
+    return a if a < b else b
+
 def solution(name):
     answer = 0
     theN = 65 # 시작은 A
@@ -20,19 +28,22 @@ def solution(name):
     
     # 이제부터 그리디 알고리즘의 진면목.. 조합을 사용하여 문자 완성 순서 뒤바꾸기
     print(list(map(''.join, itertools.permutations(name))))
-    orders = (list(map(''.join, itertools.permutations(name))))
+    orders = list(set((list(map(''.join, itertools.permutations(name))))))
     
     # 그리고 각 문자 완성 순서대로 돌면서 최솟값 찾기
     # 중요한 것은 여기서 세는 것은 오직 조이스틱을 위아래로 조작한 횟수 뿐이다.
+    alpha_len = ord('Z')-ord('A')
     answer_list = []
     for order in orders:
         count = 0
-        for alpha in order:
-            up = abs(ord('Z')-ord(alpha))  
+        start = get_better_way(0, ord(order[0])-ord('A'), alpha_len)
+        # start는 첫번째 조작을 시작할 위치
+        for alpha in order[1:]:
+            #up = abs(ord('Z')-ord(alpha))  
             # A~Z 사이를 왔다갔다 ex)'A'>'C'는 이게 좋음
-            down = (ord('Z')-ord(alpha))+(ord(alpha)-ord('A'))
+            #down = (ord('Z')-ord(alpha))+(ord(alpha)-ord('A'))
             # Z를 넘아 A부터 ex) 'Z'>'C'는 이게 좋음
-            count = count + up if up < down else count + down
+            count = count + get_better_way(start, ord(alpha)-ord('A'), alpha_len)
         answer_list.append(count)
     
     # 지금부터 세는 건 조이스틱을 왼쪽 오른쪽으로 이동시키는 횟수
@@ -42,14 +53,11 @@ def solution(name):
             order_list.append(indexing_list[alpha])
             #indexing_list.remove(indexing_list[alpha])
         count = 0
-        for order in order_list:
-            in_count = (len(orders)-1) - order
-            out_count = (len(orders)-1) - order
+        start = get_better_way(0, order_list[0], len(name))
+        for order in order_list[1:]:
+            count = count + get_better_way(0, order, len(name))
             #시발못해먹겠다
     return answer
 
 print(solution('ZAZ'))
 
-def get_better_way(start, des, limit_len): 
-    better = 0
-    return 
