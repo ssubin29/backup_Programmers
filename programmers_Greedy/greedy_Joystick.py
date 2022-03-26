@@ -27,12 +27,13 @@ def solution(name):
     print(indexing_list)
     
     # 이제부터 그리디 알고리즘의 진면목.. 조합을 사용하여 문자 완성 순서 뒤바꾸기
-    print(list(map(''.join, itertools.permutations(name))))
     orders = list(set((list(map(''.join, itertools.permutations(name))))))
+    print(orders)
     
     # 그리고 각 문자 완성 순서대로 돌면서 최솟값 찾기
     # 중요한 것은 여기서 세는 것은 오직 조이스틱을 위아래로 조작한 횟수 뿐이다.
     alpha_len = ord('Z')-ord('A')
+    print(alpha_len)
     answer_list = []
     for order in orders:
         count = 0
@@ -45,7 +46,8 @@ def solution(name):
             # Z를 넘아 A부터 ex) 'Z'>'C'는 이게 좋음
             count = count + get_better_way(start, ord(alpha)-ord('A'), alpha_len)
         answer_list.append(count)
-    
+    print(answer_list)
+
     # 지금부터 세는 건 조이스틱을 왼쪽 오른쪽으로 이동시키는 횟수
     for i in range(len(orders)):
         order_list = []
@@ -60,4 +62,3 @@ def solution(name):
     return answer
 
 print(solution('ZAZ'))
-
