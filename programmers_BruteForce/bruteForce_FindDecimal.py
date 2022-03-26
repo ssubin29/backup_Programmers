@@ -1,5 +1,4 @@
 # 완전탐색 - 소수 찾기
-
 import itertools
 import math
 
