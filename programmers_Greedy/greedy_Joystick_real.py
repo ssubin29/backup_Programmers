@@ -1,7 +1,9 @@
 # 탐욕법 - 조이스틱
 
 import itertools
+import copy
 
+from click import secho         
 # 최단 경로를 찾아주는 함수
 # 입력값 : 시작 인덱스, 목표 인덱스, 총 길이
 def get_better_way(start, des, limit_len): 
@@ -32,8 +34,31 @@ def solution(name):
 
     # 이제부터 그리디 알고리즘의 진면목.. 조합을 사용하여 문자 완성 순서 뒤바꾸기
     orders = list(set((list(map(''.join, itertools.permutations(name))))))
-    print(orders)
+    print(orders) 
 
+    order_lists = []
+    # 지금부터 세는 건 조이스틱을 왼쪽 오른쪽으로 이동시키는 횟수
+    for i in range(len(orders)):
+        print(indexing_list)
+        indexing_copy = copy.deepcopy(indexing_list)     
+        #{'J': [0], 'A': [1, 2], 'Z': [3]}
+        order_list = []
+        for alpha in orders[i]:
+            if (len(indexing_copy[alpha]) > 1):
+                order_list.append(indexing_copy[alpha][0])
+                indexing_copy[alpha].remove(indexing_copy[alpha][0])
+            else:
+                order_list.append(indexing_copy[alpha][0])
+        order_lists.append(order_list)
+    print(order_lists)
+
+    count_list = []
+    for order_list in order_lists:      
+        rightleft_count = 0
+        for (fir, sec) in zip(order_list, order_list[1:]):
+            rightleft_count = rightleft_count + get_better_way(fir, sec, len(name))
+        count_list.append(rightleft_count + order_list[0])  
+    answer = answer + min(count_list)
     return answer
 
 
