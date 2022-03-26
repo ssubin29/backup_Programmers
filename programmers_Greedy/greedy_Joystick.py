@@ -40,7 +40,7 @@ def solution(name):
         order_list = []
         for alpha in orders[i]:
             order_list.append(indexing_list[alpha])
-            indexing_list.remove(indexing_list[alpha])
+            #indexing_list.remove(indexing_list[alpha])
         count = 0
         for order in order_list:
             in_count = (len(orders)-1) - order
