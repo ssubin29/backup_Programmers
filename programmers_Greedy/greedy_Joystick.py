@@ -18,9 +18,6 @@ def solution(name):
             indexing_list[name[i]].append(i)
     print(indexing_list)
     
-    #pool = ['A', 'B', 'C']
-    #print(list(map(''.join, itertools.permutations(pool)))) # 3개의 원소로 수열 만들기
-    #print(list(map(''.join, itertools.permutations(pool, 2)))) # 2개의 원소로 수열 만들기
     # 이제부터 그리디 알고리즘의 진면목.. 조합을 사용하여 문자 완성 순서 뒤바꾸기
     print(list(map(''.join, itertools.permutations(name))))
     orders = (list(map(''.join, itertools.permutations(name))))
@@ -44,7 +41,11 @@ def solution(name):
         for alpha in orders[i]:
             order_list.append(indexing_list[alpha])
             indexing_list.remove(indexing_list[alpha])
-        
+        count = 0
+        for order in order_list:
+            in_count = (len(orders)-1) - order
+            out_count = (len(orders)-1) - order
+            #시발못해먹겠다
     return answer
 
 print(solution('ZAZ'))
