@@ -49,3 +49,7 @@ def solution(name):
     return answer
 
 print(solution('ZAZ'))
+
+def get_better_way(start, des, limit_len): 
+    better = 0
+    return 
