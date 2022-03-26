@@ -6,8 +6,8 @@ import itertools
 # 입력값 : 시작 인덱스, 목표 인덱스, 총 길이
 def get_better_way(start, des, limit_len): 
     better = 0
-    a = abs(des-start)
-    b = start + (limit_len - des)
+    a = abs(des-start) # A~Z 사이를 왔다갔다 ex)'A'>'C'는 이게 좋음
+    b = start + (limit_len - des) # Z를 넘아 A부터 ex) 'Z'>'C'는 이게 좋음
     return a if a < b else b
 
 def solution(name):
@@ -39,11 +39,7 @@ def solution(name):
         count = 0
         start = get_better_way(0, ord(order[0])-ord('A'), alpha_len)
         # start는 첫번째 조작을 시작할 위치
-        for alpha in order[1:]:
-            #up = abs(ord('Z')-ord(alpha))  
-            # A~Z 사이를 왔다갔다 ex)'A'>'C'는 이게 좋음
-            #down = (ord('Z')-ord(alpha))+(ord(alpha)-ord('A'))
-            # Z를 넘아 A부터 ex) 'Z'>'C'는 이게 좋음
+        for alpha in order[1:]:            
             count = count + get_better_way(start, ord(alpha)-ord('A'), alpha_len)
         answer_list.append(count)
     print(answer_list)
