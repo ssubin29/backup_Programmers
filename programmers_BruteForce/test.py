@@ -12,7 +12,4 @@ b.remove(2)
 print(a)
 print(b)
 
-anddd = 0
-anddd += 9
-
-print(anddd)
+print([1,4] in a)

@@ -2,8 +2,7 @@
 
 import itertools
 import copy
-
-from click import secho         
+    
 # 최단 경로를 찾아주는 함수
 # 입력값 : 시작 인덱스, 목표 인덱스, 총 길이
 def get_better_way(start, des, limit_len): 
@@ -30,36 +29,61 @@ def solution(name):
     updown_count = 0
     for alpha in name:
         updown_count = updown_count + get_better_way(0, ord(alpha)-ord('A'), alpha_len)    
-    answer = answer + updown_count    
+    answer = answer + updown_count  
+    
+    # 지금부터는 상하로 조작하는 횟수만 카운트한다.
+    # 여기서 주의! 문자열에 A가 없다면 문자열의길이-1이 상하조작 횟수지만
+    # 붙어있는 A가 있다면(두 세트 이상부터는 상관x) 그 부분은 조작할 필요가 없으니까 그 부분을 뺴고 왼쪽으로 돌게 된다
+    Acount = 0
+    opened = False # CAAT 처럼 A가 한 세트 연달아 있을 때
+    closed_by_A = False # 말그대로 A 세트가 앞뒤에만 있을 때 AADFA cf)ABSTRACTA
+    if 'A' in indexing_list.keys():
+        A_list = indexing_list['A']       
 
-    # 이제부터 그리디 알고리즘의 진면목.. 조합을 사용하여 문자 완성 순서 뒤바꾸기
-    orders = list(set((list(map(''.join, itertools.permutations(name))))))
-    print(orders) 
+        # opened부터 판별
+        if len(A_list) == 1:
+            Acount = Acount + 1
+            opened = True
+        else:
+            a = [i for i in range(len(name))]
+            s = A_list[0]
+            e = A_list[-1]
+            print(A_list)
+            if A_list == a[A_list[0]:A_list[-1]+1]:
+                Acount = len(A_list)
+                opened = True
+        if (opened):
+            print('opened입니다')
+            return answer + (len(name) - 1 ) - Acount
+        print('opened는 아닙니다')
 
-    order_lists = []
-    # 지금부터 세는 건 조이스틱을 왼쪽 오른쪽으로 이동시키는 횟수
-    for i in range(len(orders)):
-        print(indexing_list)
-        indexing_copy = copy.deepcopy(indexing_list)     
-        #{'J': [0], 'A': [1, 2], 'Z': [3]}
-        order_list = []
-        for alpha in orders[i]:
-            if (len(indexing_copy[alpha]) > 1):
-                order_list.append(indexing_copy[alpha][0])
-                indexing_copy[alpha].remove(indexing_copy[alpha][0])
-            else:
-                order_list.append(indexing_copy[alpha][0])
-        order_lists.append(order_list)
-    print(order_lists)
+        # closed_by_A 판별
+        A_list = indexing_list['A']
+        if (0 in A_list) and (len(name)-1 in A_list):
+            c = 0
+            for a_index in A_list[1:]:
+                if c + 1 == a_index:
+                    A_list.remove(c+1)
+                    Acount = Acount +1
+                    c = a_index
+                else:
+                    break
+            for a_index in A_list[::-1]:
+                if c - 1 == a_index:
+                    A_list.remove(c-1)
+                    Acount = Acount +1
+                    c = a_index
+                else:
+                    break
+            if not (A_list):
+                closed_by_A = True
+        if (closed_by_A):
+            print('closed_by_A입니다')
+            return answer + (len(name) - 1 ) - Acount        
+        print('closed_by_A 또한 아닙니다')
 
-    count_list = []
-    for order_list in order_lists:      
-        rightleft_count = 0
-        for (fir, sec) in zip(order_list, order_list[1:]):
-            rightleft_count = rightleft_count + get_better_way(fir, sec, len(name))
-        count_list.append(rightleft_count + order_list[0])  
-    answer = answer + min(count_list)
-    return answer
+    
+    return answer + (len(name) - 1 )
 
 
-print(solution("JAZ"))
+print(solution("AAAACC"))
