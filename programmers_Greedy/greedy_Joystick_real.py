@@ -81,9 +81,7 @@ def solution(name):
             print('closed_by_A입니다')
             return answer + (len(name) - 1 ) - Acount        
         print('closed_by_A 또한 아닙니다')
-
     
     return answer + (len(name) - 1 )
-
 
 print(solution("AAAACC"))
