@@ -54,7 +54,6 @@ def solution(name):
         start = get_better_way(0, order_list[0], len(name))
         for order in order_list[1:]:
             count = count + get_better_way(0, order, len(name))
-            #시발못해먹겠다
     return answer
 
 print(solution('ZAZ'))
