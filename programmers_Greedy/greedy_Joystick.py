@@ -49,7 +49,6 @@ def solution(name):
         order_list = []
         for alpha in orders[i]:
             order_list.append(indexing_list[alpha])
-            #indexing_list.remove(indexing_list[alpha])
         count = 0
         start = get_better_way(0, order_list[0], len(name))
         for order in order_list[1:]:
