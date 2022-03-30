@@ -2,6 +2,13 @@
 
 def solution(people, limit):
     answer = 0
-    people.sort(reverse=True)    
+    peoples_r =  people.copy()
+    peoples =  people.copy()
+
+    peoples_r.sort(reverse=True)
+    peoples.sort()
     
+    print(peoples_r)
+    print(peoples)
+        
     return answer

@@ -13,3 +13,7 @@ print(a)
 print(b)
 
 print([1,4] in a)
+
+a = '34563'
+print(list(a))
+print(a.split(''))
