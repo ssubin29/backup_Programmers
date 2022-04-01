@@ -1,4 +1,5 @@
 # 힙 - 더 맵게
+
 import heapq
 
 def solution(scoville, K):
@@ -9,7 +10,7 @@ def solution(scoville, K):
         fir = heapq.heappop(scoville)
         sec = heapq.heappop(scoville)
         heapq.heappush(scoville, fir + sec * 2)
-        answer = answer + 1
+        answer += 1
         
         if(len(scoville)<2):
             if (scoville[0] >= K):

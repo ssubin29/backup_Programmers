@@ -16,4 +16,11 @@ print([1,4] in a)
 
 a = '34563'
 print(list(a))
-print(a.split(''))
+
+b = [1]
+print(b[-1])
+
+b = 35
+aaa = 33
+aaa *= b
+print(aaa)
