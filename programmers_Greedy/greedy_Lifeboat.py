@@ -10,5 +10,15 @@ def solution(people, limit):
     
     print(peoples_r)
     print(peoples)
+    print(list(enumerate(people)))
+    
+    weight = 0
+    while(people):
+        weight = peoples_r[0]
+        people.remove(weight)
+        peoples.remove(weight)
+        peoples_r.remove(weight)
+        while(weight <= limit):
+            #for people
         
     return answer
