@@ -16,7 +16,7 @@ def solution(name):
     # A는 65 Z는 90
     
     # 알파벳과 알파벳이 위치해있는 인덱스 매핑
-    A_index_list
+    indexing_list = {}
     for i in range(len(name)):
         if not name[i] in indexing_list.keys():
             indexing_list[name[i]] = [i]
