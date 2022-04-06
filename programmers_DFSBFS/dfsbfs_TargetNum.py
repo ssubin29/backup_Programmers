@@ -3,7 +3,6 @@
 def solution(numbers, target):
     answer = 0
     
-    print(sum(numbers))
     sums = []
     for i, (num1, num2) in enumerate(zip(numbers, numbers[1:])):
         print(i, num1, num2)
