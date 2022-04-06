@@ -7,4 +7,5 @@ def solution(numbers, target):
     sums = []
     for i, (num1, num2) in enumerate(zip(numbers, numbers[1:])):
         print(i, num1, num2)
+        sum.append(i)
     return answer
