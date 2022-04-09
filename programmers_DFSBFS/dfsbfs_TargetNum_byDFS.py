@@ -16,7 +16,7 @@ class Tree:
             self.right.insert(val_list[1:])      
 
 # BFS 함수 정의
-def bfs(node, target, depth, goal):
+def dfs(node, target, depth, goal):
     count = 0
     if (depth == goal):
         if(node.val == target):
@@ -27,8 +27,8 @@ def bfs(node, target, depth, goal):
             return 0
     else :
         if node.left != None:
-            count += bfs(node.left, target, depth+1, goal)
-            count += bfs(node.right, target, depth+1, goal)        
+            count += dfs(node.left, target, depth+1, goal)
+            count += dfs(node.right, target, depth+1, goal)        
     return count      
 
 def solution(numbers, target):
@@ -37,6 +37,6 @@ def solution(numbers, target):
     tree = Tree(0) # 시작은 0
     tree.insert(numbers)
 
-    answer += bfs(tree, target, 0, len(numbers))
+    answer += dfs(tree, target, 0, len(numbers))
 
     return answer
