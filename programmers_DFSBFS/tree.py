@@ -1,5 +1,4 @@
 # 깊이/너비 우선 탐색(DFS/BFS) - 타겟 넘버
-
 class Tree:
     def __init__(self, val = None):
         if val != None:
@@ -28,14 +27,18 @@ def solution(numbers, target):
     answer = 0
     
     
-    tree = Tree()
-    tree.val = numbers[0]
-    tree.left = numbers[0]+1
-    tree.right = numbers[0]-1
-    Tree.insert(33)
-    print(tree.left)
-    print(tree.right)
-    print(tree.val)
+    tree = Tree(34)
+    tree.insert(33)
+    tree.insert(32)
+    print(tree.val) #34
+    print(tree.right) #None
+    print(tree.left.val) #33
+    print(tree.left.left.val) #32
+    
+    
     
     
     return answer
+
+print([] == None)
+print([3][1:])
