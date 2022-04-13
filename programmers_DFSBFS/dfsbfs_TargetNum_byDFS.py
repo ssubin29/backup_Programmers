@@ -6,6 +6,7 @@ class Tree:
         self.val = val
         self.left = None
         self.right = None
+        
     def insert(self, val_list): # left right를 모두 채우는 insert
         if (val_list):
             val = val_list[0]
