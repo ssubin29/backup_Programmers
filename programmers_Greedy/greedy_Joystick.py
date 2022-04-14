@@ -78,9 +78,9 @@ def solution(name):
             if not (A_list):
                 closed_by_A = True
         if (closed_by_A):
-            print('closed_by_A입니다')
+            #print('closed_by_A입니다')
             return answer + (len(name) - 1 ) - Acount        
-        print('closed_by_A 또한 아닙니다')
+        #print('closed_by_A 또한 아닙니다')
 
     
     return answer + (len(name) - 1 )
