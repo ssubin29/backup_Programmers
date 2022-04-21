@@ -48,7 +48,6 @@ def solution(name):
             a = [i for i in range(len(name))]
             s = A_list[0]
             e = A_list[-1]
-            print(A_list)
             if A_list == a[A_list[0]:A_list[-1]+1]:
                 Acount = len(A_list)
                 opened = True
@@ -81,6 +80,7 @@ def solution(name):
             #print('closed_by_A입니다')
             return answer + (len(name) - 1 ) - Acount        
         #print('closed_by_A 또한 아닙니다')
+
     return answer + (len(name) - 1 )
 
 print(solution("BBAAAACC"))
