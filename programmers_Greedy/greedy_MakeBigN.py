@@ -23,8 +23,7 @@ def solution_time(number, k): #시간 초과
 
 
 def solution_missed(number, k): #아예 잘못 품
-    answer = ''
-    
+    answer = ''    
     number = list(number)
     numbers = list(enumerate(number))
     

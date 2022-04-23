@@ -3,9 +3,6 @@
 def solution(routes):
     answer = 0
     
-    #print(sorted(routes))
-    #print(sorted(routes, key=lambda x : x[1]))
-    
     routes = sorted(routes, key=lambda x : x[1])
     start = -30000
     for route in routes:
