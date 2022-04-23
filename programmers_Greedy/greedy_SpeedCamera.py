@@ -2,7 +2,6 @@
 
 def solution(routes):
     answer = 0
-    
     routes = sorted(routes, key=lambda x : x[1])
     start = -30000
     for route in routes:
