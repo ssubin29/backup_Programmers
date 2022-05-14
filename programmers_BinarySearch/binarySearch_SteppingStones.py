@@ -21,11 +21,9 @@ def solution(distance, rocks, n):
                 cnt += 1
             else:
                 current=rock
-
         if cnt > n:
             right = mid-1
         else:
             left = mid+1
             answer = mid
-
     return answer
