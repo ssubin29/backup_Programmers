@@ -1,32 +1,35 @@
-# 그래프 - 가장 먼 노드
+# 그래프 - 순위
+
 from collections import deque
 import copy
 
 def solution(n, edge):
     answer = 0
     edge.sort()    
-    graphs = [deque([]) for i in range(n+1)]
+    graph = [deque([]) for i in range(n+1)]
     
     for e in edge:
-        graphs[e[0]].append(e[1])
-    #print(graphs)
-    
-    def bfs(queue, win):
-        while queue:
-            next = queue.popleft()
-            win.append(next)
-            win = bfs(graph[next],win)
-        return win
+        graph[e[0]].append(e[1])
     
     win_list =[]
-    for i in range(1, len(edge)+1):
-        graph = copy.deepcopy(graphs)
+    lose_list = [[] for i in range(n)]
+    for i in range(1, len(edge)+1):  
         win = list(graph[i])
         queue = deque(graph[i])
-        win = bfs(queue,win)    
-        win_list.append(list(set(win)))
-    
-    print(win_list)
+        while queue:
+            theN = queue.popleft()
+            if graph[theN]  :
+                for t in graph[theN]:
+                    if t not in win:
+                        queue.append(t)   
+            if theN not in win:
+                win.append(theN)
+        win_list.append(win) 
+        for w in win:
+            lose_list[w-1].append(i)
+        graph[i] = deque(win)
+    print(win_list) # [[2, 5], [5], [2, 5], [2, 3, 5], []]       
+    print(lose_list) # [[], [1, 3, 4], [4], [], [1, 2, 3, 4]]
     
     # 기본적인 논리 구조는 이렇게
     # A 선수의 정확한 순위를 알기 위해선
@@ -36,19 +39,8 @@ def solution(n, edge):
     # 3. A 선수에게 진 상대 중 그 상대에게 진 사람들
     # 1~3을 count했을 때 n-1명이면 된다!
     
-    match = [[0 for col in range(n)] for row in range(n)]
-    for i in range(n):
-        for win in win_list[i]:
-            match[i][win-1] = 1
-            match[win-1][i] = -1
-    
-    
-    for m in match:
-        count = 0
-        for n in m:
-            if n == 0:
-                count += 1
-        if count == 1:
+    for i in range(n):     
+        if  len(set(lose_list[i] + win_list[i])) == n-1:
             answer += 1
    
     return answer
