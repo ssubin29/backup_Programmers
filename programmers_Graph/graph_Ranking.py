@@ -38,7 +38,7 @@ def solution(n, edge):
         lose = bfs(queue,lose)    
         lose_list.append(list(set(lose)))    
     
-    # 기본적인 논리 구조는 이렇게
+    # 기본적인 논리 구조는 이렇게 된다
     # A 선수의 정확한 순위를 알기 위해선
     # 1. A 선수의 상대들 
     # 2. A 선수를 이긴 상대 중 그 상대에게 이긴 사람들

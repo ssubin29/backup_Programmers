@@ -29,8 +29,6 @@ def solution(n, edge):
         for w in win:
             lose_list[w-1].append(i)
         graph[i] = deque(win)
-    #print(win_list) # [[2, 5], [5], [2, 5], [2, 3, 5], []]       
-    #print(lose_list) # [[], [1, 3, 4], [4], [], [1, 2, 3, 4]]
     
     # 기본적인 논리 구조는 이렇게
     # A 선수의 정확한 순위를 알기 위해선
