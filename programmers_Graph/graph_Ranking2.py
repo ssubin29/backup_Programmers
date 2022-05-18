@@ -38,10 +38,8 @@ def solution(n, edge):
     # 3. A 선수에게 진 상대 중 그 상대에게 진 사람들
     # 1~3을 count했을 때 n-1명이면 된다!
     
-    for i in range(n):     
-        if  len(set(lose_list[i] + win_list[i])) == n-1:
+    for i in range(n):        
+        if  len(lose_list[i] + win_list[i]) == n-1:
             answer += 1
    
     return answer
-
-#print(solution(5, [[1, 2], [4, 5], [3, 4], [2, 3]]))
