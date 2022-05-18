@@ -1,7 +1,9 @@
 # 그래프 - 가장 먼 노드
+
 from collections import deque
 import copy
 
+# win_list lose_lsit 따로 계산
 def solution(n, edge):
     answer = 0
     edge.sort()    
@@ -12,8 +14,6 @@ def solution(n, edge):
         graphs[e[0]].append(e[1])
     for e in edge:
         graphs2[e[1]].append(e[0])
-    print(graphs)
-    print(graphs2)
     
     def bfs(queue, win):
         while queue:
@@ -23,22 +23,20 @@ def solution(n, edge):
         return win
     
     win_list =[]
-    for i in range(1, len(edge)+1):
+    for i in range(1, n+1):
         graph = copy.deepcopy(graphs)
         win = list(graph[i])
         queue = deque(graph[i])
         win = bfs(queue,win)    
-        win_list.append(list(set(win)))    
-    print(win_list)
+        win_list.append(list(set(win)))  
 
     lose_list =[]
-    for i in range(1, len(edge)+1):
+    for i in range(1, n+1):
         graph = copy.deepcopy(graphs2)
         lose = list(graph[i])
         queue = deque(graph[i])
         lose = bfs(queue,lose)    
         lose_list.append(list(set(lose)))    
-    print(lose_list)
     
     # 기본적인 논리 구조는 이렇게
     # A 선수의 정확한 순위를 알기 위해선

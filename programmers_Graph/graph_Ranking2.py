@@ -3,6 +3,7 @@
 from collections import deque
 import copy
 
+# win_list로 lose_list 추론
 def solution(n, edge):
     answer = 0
     edge.sort()    
@@ -13,7 +14,7 @@ def solution(n, edge):
     
     win_list =[]
     lose_list = [[] for i in range(n)]
-    for i in range(1, len(edge)+1):  
+    for i in range(1, n+1):  
         win = list(graph[i])
         queue = deque(graph[i])
         while queue:
@@ -28,8 +29,8 @@ def solution(n, edge):
         for w in win:
             lose_list[w-1].append(i)
         graph[i] = deque(win)
-    print(win_list) # [[2, 5], [5], [2, 5], [2, 3, 5], []]       
-    print(lose_list) # [[], [1, 3, 4], [4], [], [1, 2, 3, 4]]
+    #print(win_list) # [[2, 5], [5], [2, 5], [2, 3, 5], []]       
+    #print(lose_list) # [[], [1, 3, 4], [4], [], [1, 2, 3, 4]]
     
     # 기본적인 논리 구조는 이렇게
     # A 선수의 정확한 순위를 알기 위해선
@@ -44,3 +45,5 @@ def solution(n, edge):
             answer += 1
    
     return answer
+
+#print(solution(5, [[1, 2], [4, 5], [3, 4], [2, 3]]))
