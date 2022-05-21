@@ -6,7 +6,7 @@ def solution(N, number):
     for i in range(1, 9):
         numbers = set()
         numbers.add(int(i*str(N)))
-        print(numbers)
+        #print(numbers)
         
         for j in range(i-1):
             for x in dp[j]:
@@ -21,7 +21,7 @@ def solution(N, number):
             return i
         
         dp.append(numbers)
-        print(dp)
+        #print(dp)
     
     return -1
 print(solution(5,	12))
