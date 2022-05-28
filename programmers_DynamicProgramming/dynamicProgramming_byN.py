@@ -20,7 +20,6 @@ def solution(N, number):
             return i
         
         dp.append(numbers)
-        #print(dp)
     
     return -1
 print(solution(5,	12))
