@@ -1,30 +1,30 @@
 def solution(stones, k):
     answer = 0
     emp = [0] * len(stones)
-    print(stones)
     
     avail = [l+1 for l  in range(k)]
-    print(avail)
-        
     
-    while(True): # 징검다리를 건너는 사람을 count하는 루프
+    
+    while(answer < 3): # 징검다리를 건너는 사람을 count하는 루프
         i = 0
-        while(i == len(stones)):
+        while(i <= len(stones)-1):
         # 징검다리의 각 숫자를 확인하는 루프
-            if not stones[i] > 0:
+            if stones[i] > 0:
                 stones[i] -= 1
                 i += 1
             else:
-                for K in avail:
-                    if stones[i+K] > 0:
-                        i += K
-                        stones[K] -= 1
+                avai = [i+K for K in avail if i+K <= len(stones)-1]
+                print(avai,i)
+                if not (avai):
+                    return answer
+                for a in avai:                    
+                    if stones[a] > 0:
+                        i = a
                         break
-                return answer
-            answer += 1
-                
-                
-        
-    print(stones)            
+        print(stones)  
+        answer += 1
+            
         
     return answer
+
+print(solution(	[2, 4, 5, 3, 2, 1, 4, 2, 5, 1], 3))
