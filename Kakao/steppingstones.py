@@ -1,3 +1,5 @@
+# 2019 카카오 개발자 겨울 인턴십 - 징검다리 건너기
+
 def solution(stones, k):
     answer = 0
     emp = [0] * len(stones)
@@ -14,17 +16,24 @@ def solution(stones, k):
                 i += 1
             else:
                 avai = [i+K for K in avail if i+K <= len(stones)-1]
-                print(avai,i)
-                if not (avai):
-                    return answer
+                #print(avai,i)
+                if not (avai): # 마지막이라 더 건널 돌이 없을 때
+                    if (len(stones)-1-i < k):
+                        break
+                    else:
+                        print('도착지까지 ')
+                        return answer
                 for a in avai:                    
                     if stones[a] > 0:
                         i = a
                         break
-        print(stones)  
+                if a == avail[-1]:
+                    print('앞에 돌이 있으나 디딜 수 없으므로 갈 수 없습니다')
+                    return answer
+
+        #print(stones)  
         answer += 1
             
-        
     return answer
 
 print(solution(	[2, 4, 5, 3, 2, 1, 4, 2, 5, 1], 3))
