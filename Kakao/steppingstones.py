@@ -30,8 +30,6 @@ def solution(stones, k):
                 if a == avail[-1]:
                     print('앞에 돌이 있으나 디딜 수 없으므로 갈 수 없습니다')
                     return answer
-
-        #print(stones)  
         answer += 1
             
     return answer
