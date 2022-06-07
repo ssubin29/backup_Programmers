@@ -16,7 +16,6 @@ def solution(stones, k):
                 i += 1
             else:
                 avai = [i+K for K in avail if i+K <= len(stones)-1]
-                #print(avai,i)
                 if not (avai): # 마지막이라 더 건널 돌이 없을 때
                     if (len(stones)-1-i < k):
                         break
