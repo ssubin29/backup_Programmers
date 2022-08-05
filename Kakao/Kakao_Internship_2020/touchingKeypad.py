@@ -28,12 +28,10 @@ def solution(numbers, hand):
         if r == l:
             ans = hands_[hands[hand]]
         else :
-            ans = hands_[l > r]
+            ans = hands_[l < r]
             
         if ans == "R": curr_right = pos
         elif ans == "L": curr_left = pos
         answer += ans
         
-            
-    
     return answer
