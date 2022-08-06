@@ -2,8 +2,7 @@
 
 # 
 def solution(numbers, hand):
-    answer = ''
-    
+    answer = ''    
     position = []
     for num in numbers:
         pos = (0,0)
