@@ -2,6 +2,10 @@
 
 def solution(expression):
     answer = 0
+    
     print(expression)
+
+    for e in expression:
+        print(e)
     
     return answer
