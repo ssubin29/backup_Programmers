@@ -9,7 +9,16 @@ def solution(expression):
     count = []
     num = ''
     for e in expression:
-        if e
+        if e == '+' or e == '-' or e == '*' :
+            op.append(e)
+            count.append(int(num))
+            num = ''
+        else:
+            num += e
+    count.append(int(num))
+    
+    print(op)
+    print(count)
         
     
     return answer
