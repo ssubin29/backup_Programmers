@@ -2,4 +2,5 @@
 
 def solution(gems):
     answer = []
+    print(gems)
     return answer
