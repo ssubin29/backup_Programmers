@@ -5,7 +5,11 @@ def solution(expression):
     
     print(expression)
 
+    op = []
+    count = []
+    num = ''
     for e in expression:
-        print(e)
+        if e
+        
     
     return answer
