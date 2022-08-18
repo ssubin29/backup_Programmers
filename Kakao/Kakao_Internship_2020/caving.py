@@ -2,5 +2,7 @@
 
 def solution(n, path, order):
     answer = True
+
     print(n)
+    
     return answer
